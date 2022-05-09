@@ -20,22 +20,4 @@ public abstract class MixinServerWorld extends MixinWorld {
         timeDelta--;
     }
 
-    /*@Inject(method = "tick", at = @At("HEAD"))
-    private void onTick(CallbackInfo ci) {
-        timeDelta += timeFactor;
-        if (timeDelta < 1.0f) {
-            canTick = false;
-            return;
-        }
-        canTick = true;
-        timeDelta--;
-    }
-
-    @Inject(method = "tickEntity", at = @At("HEAD"), cancellable = true)
-    private void onTickEntity(Entity entity, CallbackInfo ci) {
-        if (!canTick) {
-            ci.cancel();
-        }
-    }*/
-
 }

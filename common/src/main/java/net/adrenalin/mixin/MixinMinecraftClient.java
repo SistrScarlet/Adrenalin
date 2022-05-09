@@ -22,9 +22,6 @@ public abstract class MixinMinecraftClient {
     @Shadow
     private volatile boolean paused;
 
-    @Shadow
-    public abstract void tick();
-
     @Inject(method = "tick", at = @At("HEAD"), cancellable = true)
     private void onTick(CallbackInfo ci) {
         ClientWorld world = this.world;
