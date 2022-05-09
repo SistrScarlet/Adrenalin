@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "adrenalin",
+  "version": "${version}",
+  "name": "Adrenalin Mod",
+  "description": "",
+  "authors": [
+    "Sistr"
+  ],
+  "contact": {
+    "homepage": "",
+    "sources": ""
+  },
+  "license": "CC0",
+  "icon": "assets/adrenalin/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.adrenalin.fabric.AdrenalinModFabric"
+    ]
+  },
+  "mixins": [
+    "adrenalin.mixins.json",
+    "adrenalin-common.mixins.json"
+  ],
+  "depends": {
+    "fabric": "*",
+    "minecraft": ">=1.18.2",
+    "architectury": ">=4.2.50"
+  }
+}

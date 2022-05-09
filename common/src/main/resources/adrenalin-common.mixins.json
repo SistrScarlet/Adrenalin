@@ -1,0 +1,17 @@
+{
+  "required": true,
+  "package": "net.adrenalin.mixin",
+  "compatibilityLevel": "JAVA_16",
+  "client": [
+    "MixinClientWorld",
+    "MixinMinecraftClient"
+  ],
+  "mixins": [
+    "MixinServerPlayerEntity",
+    "MixinServerWorld",
+    "MixinWorld"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
