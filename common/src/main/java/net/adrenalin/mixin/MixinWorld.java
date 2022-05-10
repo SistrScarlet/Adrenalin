@@ -7,26 +7,26 @@ import org.spongepowered.asm.mixin.Mixin;
 
 @Mixin(World.class)
 public class MixinWorld implements TimeDeacceleratable {
-    protected float timeDelta = 0.0f;
-    protected float timeFactor = 1.0f;
+    private double timeDelta = 0.0;
+    private double timeFactor = 1.0;
 
     @Override
-    public void setTimeDelta(float delta) {
-        this.timeDelta = MathHelper.clamp(delta, 0.0f, 2.0f);
+    public void setTimeDelta(double delta) {
+        this.timeDelta = MathHelper.clamp(delta, 0.0, 2.0);
     }
 
     @Override
-    public float getTimeDelta() {
+    public double getTimeDelta() {
         return this.timeDelta;
     }
 
     @Override
-    public void setTimeFactor(float factor) {
-        this.timeFactor = MathHelper.clamp(factor, 1.0f / 20.0f, 1.0f);
+    public void setTimeFactor(double factor) {
+        this.timeFactor = MathHelper.clamp(factor, 1.0 / 20.0, 1.0);
     }
 
     @Override
-    public float getTimeFactor() {
+    public double getTimeFactor() {
         return this.timeFactor;
     }
 }

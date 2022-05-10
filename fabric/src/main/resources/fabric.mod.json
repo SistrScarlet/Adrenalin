@@ -17,6 +17,12 @@
   "entrypoints": {
     "main": [
       "net.adrenalin.fabric.AdrenalinModFabric"
+    ],
+    "client": [
+      "net.adrenalin.fabric.AdrenalinModFabric"
+    ],
+    "modmenu": [
+      "net.adrenalin.fabric.AdrenalinModMenu"
     ]
   },
   "mixins": [

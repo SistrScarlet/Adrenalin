@@ -22,16 +22,22 @@ public abstract class MixinMinecraftClient {
     @Shadow
     private volatile boolean paused;
 
+    private double ticksDelta;
+    private double deltaStack;
+
     @Inject(method = "tick", at = @At("HEAD"), cancellable = true)
     private void onTick(CallbackInfo ci) {
         ClientWorld world = this.world;
         if (world instanceof TimeDeacceleratable t) {
             t.setTimeDelta(t.getTimeDelta() + t.getTimeFactor());
-            if (t.getTimeDelta() < 1.0f) {
+            if (t.getTimeDelta() < 1.0) {
+                deltaStack += ticksDelta;
                 ci.cancel();
                 return;
             }
-            t.setTimeDelta(t.getTimeDelta() - 1.0f);
+            deltaStack = 0;
+            t.setTimeDelta(t.getTimeDelta() - 1.0);
+            ticksDelta = 1.0 / MathHelper.ceil((1 - t.getTimeDelta()) / t.getTimeFactor());
         }
     }
 
@@ -41,11 +47,15 @@ public abstract class MixinMinecraftClient {
             return tickDelta;
         }
         ClientWorld world = this.world;
-        if (world instanceof TimeDeacceleratable t) {
-            float delta = t.getTimeDelta();
-            float factor = t.getTimeFactor();
-            //DeltaをFactorで割った整数
-            return Math.min(MathHelper.floor(delta / factor) * factor + tickDelta * factor, 1.0f);
+        if (world != null) {
+            TimeDeacceleratable t = (TimeDeacceleratable) world;
+            if (1.0 <= t.getTimeFactor()) {
+                return tickDelta;
+            }
+
+            double factor = ticksDelta;
+
+            return (float) (deltaStack + tickDelta * factor);
         }
         return tickDelta;
     }

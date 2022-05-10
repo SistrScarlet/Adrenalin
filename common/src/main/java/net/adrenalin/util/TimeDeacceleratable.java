@@ -1,13 +1,13 @@
 package net.adrenalin.util;
 
 public interface TimeDeacceleratable {
+    //doubleなのは計算誤差対策
+    void setTimeDelta(double delta);
 
-    void setTimeDelta(float delta);
+    double getTimeDelta();
 
-    float getTimeDelta();
+    void setTimeFactor(double factor);
 
-    void setTimeFactor(float factor);
-
-    float getTimeFactor();
+    double getTimeFactor();
 
 }

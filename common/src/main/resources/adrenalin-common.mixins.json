@@ -3,6 +3,7 @@
   "package": "net.adrenalin.mixin",
   "compatibilityLevel": "JAVA_16",
   "client": [
+    "MixinClientWorld",
     "MixinMinecraftClient"
   ],
   "mixins": [

@@ -14,7 +14,7 @@ public class Networking {
     }
 
     private static void commonInit() {
-
+        NetworkManager.registerReceiver(NetworkManager.Side.C2S, SparkAdrenalinPacket.ID, SparkAdrenalinPacket::receiveC2S);
     }
 
     private static void clientInit() {

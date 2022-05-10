@@ -12,12 +12,12 @@ public abstract class MixinServerWorld extends MixinWorld {
 
     @Inject(method = "tick", at = @At("HEAD"), cancellable = true)
     private void onTick(CallbackInfo ci) {
-        timeDelta += timeFactor;
-        if (timeDelta < 1.0f) {
+        setTimeDelta(getTimeDelta() + getTimeFactor());
+        if (getTimeDelta() < 1.0) {
             ci.cancel();
             return;
         }
-        timeDelta--;
+        setTimeDelta(getTimeDelta() - 1.0);
     }
 
 }
