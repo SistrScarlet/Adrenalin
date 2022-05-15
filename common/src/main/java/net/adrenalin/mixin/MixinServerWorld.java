@@ -27,6 +27,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.function.BooleanSupplier;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 
@@ -70,7 +71,7 @@ public abstract class MixinServerWorld extends World implements TimeDeaccelerata
     private final Object2ObjectMap<ChunkPos, ChunkTimeStasisDate> stasisChunks = new Object2ObjectOpenHashMap<>();
 
     @Inject(method = "tick", at = @At("HEAD"), cancellable = true)
-    private void onTick(CallbackInfo ci) {
+    private void onTick(BooleanSupplier shouldKeepTicking, CallbackInfo ci) {
         if (!AdrenalinConfig.getINSTANCE().isEnable()) {
             return;
         }

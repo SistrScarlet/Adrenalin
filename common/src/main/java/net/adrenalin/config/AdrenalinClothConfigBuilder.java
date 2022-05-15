@@ -33,7 +33,7 @@ public class AdrenalinClothConfigBuilder {
 
         general.addEntry(entryBuilder.startFloatField(
                         new TranslatableText("option.adrenalin.max_time_stasis_factor"), config.getMaxTimeStasisFactor())
-                .setDefaultValue(100.0f)
+                .setDefaultValue(0.25f)
                 .setMax(1.0f)
                 .setMin(1.0f / 100)
                 .setTooltip(new TranslatableText("option.adrenalin.max_time_stasis_factor.tooltip"))
