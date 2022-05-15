@@ -1,0 +1,20 @@
+{
+  "adrenalin.key.spark_adrenalin": "Spark Adrenalin",
+
+  "title.adrenalin.config": "Adrenalin Config",
+  "category.adrenalin.adrenalin": "Category Adrenalin",
+  "option.adrenalin.enable": "Enable",
+  "option.adrenalin.enable.tooltip": "Turns on adrenaline-induced time stall. It is not synchronized between server and client; when ReplayMod is installed, if it is on when playing and off when replaying, it will behave as if it is not time-stagnated at all. Maybe.",
+  "option.adrenalin.max_time_stasis_factor": "Time Stasis Factor",
+  "option.adrenalin.max_time_stasis_factor.tooltip": "Specifies the time stagnation rate as a percentage. 0.5 is 50%.",
+  "option.adrenalin.adrenalin_decay": "Adrenalin Decay",
+  "option.adrenalin.adrenalin_decay.tooltip": "The time it takes for the adrenaline to decay and the time stagnation to be released. 1 second at 20.",
+  "option.adrenalin.low_health_threshold": "Low Health Threshold",
+  "option.adrenalin.low_health_threshold.tooltip": "When the ratio of maximum strength to strength falls below this, adrenaline begins to be released. 0.5 is 50%.",
+  "option.adrenalin.continuous_damage_threshold": "Continuous Damage Threshold",
+  "option.adrenalin.continuous_damage_threshold.tooltip": "When the ratio of maximum strength to damage sustained over a period of time is greater than this, adrenaline begins to be released. 0.5 is 50%.",
+  "option.adrenalin.continuous_damage_decay": "Continuous Damage Decay",
+  "option.adrenalin.continuous_damage_decay.tooltip": "It is the time it takes for the sum of the maximum strength and the percentage of damage to reach 0. 20 is 1 second.",
+  "option.adrenalin.chunk_base_time_stasis": "Chunk Base Time Stasis",
+  "option.adrenalin.chunk_base_time_stasis.tooltip": "Only server-side processing is time-stagnant based on chunks, not worlds. This is intended for use in a multi This is an experimental setup."
+}

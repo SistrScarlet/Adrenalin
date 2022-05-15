@@ -22,6 +22,7 @@ public class AdrenalinConfig {
     private float lowHealthThreshold = 0.5f;
     private float continuousDamageThreshold = 0.2f;
     private int continuousDamageDecay = 100;
+    private boolean chunkBaseTimeStasis = false;
 
     public static AdrenalinConfig getINSTANCE() {
         return INSTANCE;
@@ -42,6 +43,7 @@ public class AdrenalinConfig {
                 getFloat(jsonObject.get("lowHealthThreshold")).ifPresent(this::setLowHealthThreshold);
                 getFloat(jsonObject.get("continuousDamageThreshold")).ifPresent(this::setContinuousDamageThreshold);
                 getInt(jsonObject.get("continuousDamageDecay")).ifPresent(this::setContinuousDamageDecay);
+                getBoolean(jsonObject.get("chunkBaseTimeStasis")).ifPresent(this::setChunkBaseTimeStasis);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -58,6 +60,7 @@ public class AdrenalinConfig {
             element.add("lowHealthThreshold", new JsonPrimitive(this.getLowHealthThreshold()));
             element.add("continuousDamageThreshold", new JsonPrimitive(this.getContinuousDamageThreshold()));
             element.add("continuousDamageDecay", new JsonPrimitive(this.getContinuousDamageDecay()));
+            element.add("chunkBaseTimeStasis", new JsonPrimitive(this.isChunkBaseTimeStasis()));
             Streams.write(element, writer);
         } catch (Exception e) {
             e.printStackTrace();
@@ -147,5 +150,13 @@ public class AdrenalinConfig {
 
     public float getContinuousDamageLowLimit() {
         return 0.1f;
+    }
+
+    public boolean isChunkBaseTimeStasis() {
+        return chunkBaseTimeStasis;
+    }
+
+    public void setChunkBaseTimeStasis(boolean chunkBaseTimeStasis) {
+        this.chunkBaseTimeStasis = chunkBaseTimeStasis;
     }
 }

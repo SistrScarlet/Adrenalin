@@ -1,5 +1,5 @@
 plugins {
-    id "architectury-plugin" version "3.4.135"
+    id "architectury-plugin" version "3.4-SNAPSHOT"
     id "dev.architectury.loom" version "0.11.0-SNAPSHOT" apply false
 }
 
@@ -28,7 +28,7 @@ allprojects {
     apply plugin: "architectury-plugin"
     apply plugin: "maven-publish"
 
-    archivesBaseName = rootProject.archives_base_name
+    archivesBaseName = rootProject.archives_base_name + rootProject.minecraft_version
     version = rootProject.mod_version
     group = rootProject.maven_group
 

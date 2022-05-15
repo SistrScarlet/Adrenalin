@@ -1,0 +1,20 @@
+{
+  "adrenalin.key.spark_adrenalin": "アドレナリン",
+
+  "title.adrenalin.config": "アドレナリン コンフィグ",
+  "category.adrenalin.adrenalin": "カテゴリ アドレナリン",
+  "option.adrenalin.enable": "有効",
+  "option.adrenalin.enable.tooltip": "アドレナリンによる時間停滞をオンにします。サーバーとクライアント間で同期しません。ReplayMod導入時に、プレイ時オンでリプレイ時にオフの場合、全く時間停滞しないような挙動になります。多分。",
+  "option.adrenalin.max_time_stasis_factor": "時間停滞速度",
+  "option.adrenalin.max_time_stasis_factor.tooltip": "時間停滞速度を割合で指定します。0.5で50%です。",
+  "option.adrenalin.adrenalin_decay": "アドレナリン減衰速度",
+  "option.adrenalin.adrenalin_decay.tooltip": "アドレナリンが減衰し、時間停滞が解除されるまでの時間。20で1秒です。",
+  "option.adrenalin.low_health_threshold": "低体力閾値",
+  "option.adrenalin.low_health_threshold.tooltip": "最大体力と体力の割合がこれ以下になると、アドレナリンが分泌され始めます。0.5で50%です。",
+  "option.adrenalin.continuous_damage_threshold": "継続ダメージ閾値",
+  "option.adrenalin.continuous_damage_threshold.tooltip": "一定期間に受けた最大体力とダメージの割合がこれ以上になると、アドレナリンが分泌され始めます。0.5で50%です。",
+  "option.adrenalin.continuous_damage_decay": "継続ダメージ減衰値",
+  "option.adrenalin.continuous_damage_decay.tooltip": "最大体力とダメージの割合の総計が0になるまでの時間です。20で1秒です。",
+  "option.adrenalin.chunk_base_time_stasis": "チャンク基準時間停滞",
+  "option.adrenalin.chunk_base_time_stasis.tooltip": "サーバー側の処理のみ、ワールドではなくチャンクを基準にして時間停滞を行います。マルチでの使用を想定しています。実験的な設定です。"
+}

@@ -18,7 +18,7 @@ public class Networking {
     }
 
     private static void clientInit() {
-        NetworkManager.registerReceiver(NetworkManager.Side.S2C, SyncTimeFactorPacket.ID, SyncTimeFactorPacket::receiveS2C);
+        NetworkManager.registerReceiver(NetworkManager.Side.S2C, SyncTickIntervalPacket.ID, SyncTickIntervalPacket::receiveS2C);
     }
 
 }

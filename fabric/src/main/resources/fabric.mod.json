@@ -3,13 +3,13 @@
   "id": "adrenalin",
   "version": "${version}",
   "name": "Adrenalin Mod",
-  "description": "",
+  "description": "\"アドレナリンが過剰分泌され、時間感覚が泥めいて鈍化した。\"",
   "authors": [
     "Sistr"
   ],
   "contact": {
-    "homepage": "",
-    "sources": ""
+    "homepage": "https://forum.civa.jp/viewtopic.php?f=3&t=119",
+    "sources": "https://github.com/SistrScarlet/adrenalin"
   },
   "license": "CC0",
   "icon": "assets/adrenalin/icon.png",
@@ -32,6 +32,8 @@
   "depends": {
     "fabric": "*",
     "minecraft": ">=1.18.2",
-    "architectury": ">=4.2.50"
+    "architectury": ">=4.4.59",
+    "modmenu": ">=3.2.1",
+    "cloth-config": ">=6.2.62"
   }
 }

@@ -1,35 +1,40 @@
 modLoader = "javafml"
 loaderVersion = "[40,)"
 #issueTrackerURL = ""
-license = "Insert License Here"
+license = "CC0"
 
 [[mods]]
-modId = "examplemod"
+modId = "adrenalin"
 version = "${version}"
-displayName = "Example Mod"
-authors = "Me!"
-description = '''
-This is an example description! Tell everyone what your mod is about!
-'''
+displayName = "Adrenalin Mod"
+authors = "Sistr"
+description = ""
 #logoFile = ""
 
-[[dependencies.examplemod]]
+[[dependencies.adrenalin]]
 modId = "forge"
 mandatory = true
 versionRange = "[40,)"
 ordering = "NONE"
 side = "BOTH"
 
-[[dependencies.examplemod]]
+[[dependencies.adrenalin]]
 modId = "minecraft"
 mandatory = true
 versionRange = "[1.18.2,)"
 ordering = "NONE"
 side = "BOTH"
 
-[[dependencies.examplemod]]
+[[dependencies.adrenalin]]
 modId = "architectury"
 mandatory = true
-versionRange = "[4.2.50,)"
+versionRange = "[4.4.59,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.adrenalin]]
+modId = "cloth-config"
+mandatory = true
+versionRange = "[6.2.62,)"
 ordering = "AFTER"
 side = "BOTH"

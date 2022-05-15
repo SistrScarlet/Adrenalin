@@ -5,33 +5,32 @@ import io.netty.buffer.Unpooled;
 import net.adrenalin.AdrenalinMod;
 import net.adrenalin.config.AdrenalinConfig;
 import net.adrenalin.util.TimeDeacceleratable;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.world.ClientWorld;
 import net.minecraft.network.PacketByteBuf;
-import net.minecraft.server.world.ServerWorld;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Identifier;
 
-public class SyncTimeFactorPacket {
-    public static final Identifier ID = new Identifier(AdrenalinMod.MOD_ID, "sync_time_factor");
+import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
-    public static void sendS2C(ServerWorld world) {
+public class SyncTickIntervalPacket {
+    public static final Identifier ID = new Identifier(AdrenalinMod.MOD_ID, "sync_time_factor");
+    public static final AtomicInteger clientTickInterval = new AtomicInteger(-1);
+
+    public static void sendS2C(TimeDeacceleratable t, List<ServerPlayerEntity> target) {
         PacketByteBuf buf = new PacketByteBuf(Unpooled.buffer());
-        buf.writeDouble(((TimeDeacceleratable) world).getTimeFactor());
-        NetworkManager.sendToPlayers(world.getPlayers(), ID, buf);
+        buf.writeShort(t.getTickInterval());
+        NetworkManager.sendToPlayers(target, ID, buf);
     }
 
     public static void receiveS2C(PacketByteBuf packetByteBuf, NetworkManager.PacketContext packetContext) {
-        double factor = packetByteBuf.readDouble();
-        packetContext.queue(() -> applyS2C(factor));
+        int tickInterval = packetByteBuf.readShort();
+        applyS2CAsync(tickInterval);
     }
 
-    private static void applyS2C(double factor) {
+    private static void applyS2CAsync(int tickInterval) {
         if (!AdrenalinConfig.getINSTANCE().isEnable()) {
             return;
         }
-        ClientWorld world = MinecraftClient.getInstance().world;
-        if (world instanceof TimeDeacceleratable t) {
-            t.setTimeFactor(factor);
-        }
+        clientTickInterval.set(tickInterval);
     }
 }
